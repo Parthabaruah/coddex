@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shape rough ideas into clear, ready-to-use prompts with Coddex."
+    />
+    <title>Coddex — Prompt improver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Coddex home">
+          <span class="brand-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Coddex</span>
+        </a>
+        <div class="topbar-note"><span class="status-dot"></span> Your ideas, made clearer</div>
+        <button class="theme-button" id="themeToggle" type="button" aria-label="Switch to dark theme">
+          <span aria-hidden="true">◐</span>
+          <span id="themeLabel">Theme</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div class="eyebrow"><span aria-hidden="true">✳</span> YOUR PROMPT, REFINED</div>
+          <h1>Get better answers<br />from a <span>better prompt.</span></h1>
+          <p>Start with a rough idea. Coddex will give it structure, context, and a clear finish line.</p>
+        </section>
+
+        <section class="workspace" aria-label="Prompt improvement workspace">
+          <form class="editor-card" id="promptForm">
+            <div class="card-heading">
+              <div>
+                <span class="step-label">01 / YOUR IDEA</span>
+                <h2>What do you want to ask?</h2>
+              </div>
+              <span class="sparkle" aria-hidden="true">✳</span>
+            </div>
+
+            <label class="visually-hidden" for="ideaInput">Your rough prompt</label>
+            <textarea
+              id="ideaInput"
+              name="idea"
+              maxlength="2000"
+              placeholder="e.g. Help me plan a beginner-friendly vegetable garden for a small balcony..."
+              required
+            ></textarea>
+            <div class="input-meta">
+              <span>Write it how it comes to you. You can refine the details next.</span>
+              <span id="characterCount">0 / 2000</span>
+            </div>
+
+            <div class="options">
+              <div class="field">
+                <label for="audienceInput">Who is this for?</label>
+                <input id="audienceInput" type="text" maxlength="120" placeholder="e.g. a complete beginner" />
+              </div>
+              <div class="field">
+                <label for="formatSelect">Preferred answer format</label>
+                <div class="select-wrap">
+                  <select id="formatSelect">
+                    <option value="A clear, practical step-by-step guide">Step-by-step guide</option>
+                    <option value="A concise list of the most useful recommendations">Concise bullet points</option>
+                    <option value="A detailed explanation with examples">Detailed explanation</option>
+                    <option value="A comparison table followed by a short recommendation">Comparison table</option>
+                    <option value="A polished draft that is ready to use">Ready-to-use draft</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button class="improve-button" type="submit">
+              <span>Improve my prompt</span>
+              <span class="button-arrow" aria-hidden="true">↗</span>
+            </button>
+            <p class="privacy-note"><span aria-hidden="true">⌁</span> Runs in your browser. Your text stays on this device.</p>
+          </form>
+
+          <section class="result-card" aria-labelledby="resultTitle">
+            <div class="result-heading">
+              <div>
+                <span class="step-label">02 / THE UPGRADE</span>
+                <h2 id="resultTitle">Your improved prompt</h2>
+              </div>
+              <span class="result-badge" id="resultBadge">READY WHEN YOU ARE</span>
+            </div>
+
+            <div class="output-wrap">
+              <div class="output-placeholder" id="outputPlaceholder">
+                <span class="placeholder-icon" aria-hidden="true">✳</span>
+                <strong>Your clearer prompt will show up here.</strong>
+                <span>Add your idea and hit “Improve my prompt” to get started.</span>
+              </div>
+              <textarea id="outputPrompt" aria-label="Improved prompt" hidden></textarea>
+            </div>
+
+            <div class="result-footer">
+              <span id="resultHint">A little structure goes a long way.</span>
+              <button class="copy-button" id="copyButton" type="button" disabled>
+                <span aria-hidden="true">▢</span> Copy prompt
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <footer class="page-footer">
+          <span class="footer-mark">C</span>
+          <span>Less guessing. Better asking.</span>
+          <span class="local-label"><span class="status-dot"></span> Private by design</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
